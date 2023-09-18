@@ -7,7 +7,7 @@ export const Ticket = () => {
   return (
     <section className="w-full h-screen flex flex-col items-center justify-center">
       <Atropos
-        className="w-[800px] max-[800px]:w-[320px] h-[500px] relative  mt-28"
+        className="w-[800px] max-[800px]:w-[310px] h-[400px] relative  mt-28"
         activeOffset={40}
         shadowScale={1.05}
       >
