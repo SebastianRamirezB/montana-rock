@@ -19,9 +19,6 @@ export default function Home() {
         <Bands />
       </div>
       <div className="snap-center">
-        <Organize />
-      </div>
-      <div className="snap-center">
         <Sponsors />
       </div>
       <div className="snap-center">

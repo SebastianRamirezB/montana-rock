@@ -24,10 +24,10 @@ export const Timer = ({ deadline = new Date().toString() }) => {
     return (
         <div className="flex gap-8"> 
             {Object.entries({
-                Days: time / DAY,
-                Hours: (time / HOUR) % 24,
-                Minutes: (time / MINUTE) % 60,
-                Seconds: (time / SECOND) % 60,
+                Días: time / DAY,
+                Horas: (time / HOUR) % 24,
+                Minutos: (time / MINUTE) % 60,
+                Segundos: (time / SECOND) % 60,
             }).map(([label, value]) => (
                 <div key={label} className="">
                     <div className="flex flex-col justify-center items-center text-3xl max-[800px]:text-base rounded-lg">
