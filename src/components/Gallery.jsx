@@ -13,11 +13,6 @@ export const Gallery = () => {
                 />
                 <img
                     class="hover:w-[300px] hover:cursor-crosshair hover:opacity-100"
-                    src="/images/img-gallery-2.webp"
-                    alt=""
-                />
-                <img
-                    class="hover:w-[300px] hover:cursor-crosshair hover:opacity-100"
                     src="/images/img-gallery-3.webp"
                     alt=""
                 />
