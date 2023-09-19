@@ -10,10 +10,9 @@ const bands = [
     'silversmoke',
     'sunset street',
     'job',
-    'rokamandú',
+    'electrica',
     'santa pacha',
     'constelan sound',
-    'paradoja',
     'sonic barton',
     'riverstone',
 ]

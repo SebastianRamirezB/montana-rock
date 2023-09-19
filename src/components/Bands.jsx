@@ -70,10 +70,9 @@ export const Bands = () => {
                     </div>
                     <div className="mb-2 text-4xl max-[800px]:text-base flex flex-wrap justify-center gap-4 text-center [&>span]:text-white">
                         <span className="text-4xl max-[800px]:text-lg uppercase">silversmoke</span> | <span className="text-4xl max-[800px]:text-lg uppercase">sunset street</span> | <span className="text-4xl max-[800px]:text-lg uppercase">job</span> | <span
-                            className="text-4xl max-[800px]:text-lg uppercase">rokamandú</span> | <span
                                 className="text-4xl max-[800px]:text-lg uppercase">santa pacha</span> | <span
                                     className="text-4xl max-[800px]:text-lg uppercase">constelan sound</span> | <span
-                                        className="text-4xl max-[800px]:text-lg uppercase">paradoja</span> | <span
+                                        className="text-4xl max-[800px]:text-lg uppercase">electrica</span> | <span
                                             className="text-4xl max-[800px]:text-lg uppercase">sonic barton</span> | <span
                                                 className="text-4xl max-[800px]:text-lg uppercase">riverstone</span>
                     </div>
