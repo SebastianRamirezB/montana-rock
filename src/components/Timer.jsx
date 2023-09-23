@@ -31,7 +31,7 @@ export const Timer = ({ deadline = new Date().toString() }) => {
             }).map(([label, value]) => (
                 <div key={label} className="">
                     <div className="flex flex-col justify-center items-center text-3xl max-[800px]:text-base rounded-lg">
-                        <span>{`${Math.floor(value)}`.padStart(2, "0")}</span>
+                        <span>0</span>
                         <span className="lowercase">{label}</span> 
                     </div>
                 </div>
