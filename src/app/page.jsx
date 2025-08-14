@@ -10,7 +10,7 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <>
-      <main className="snap-y snap-mandatory relative w-full h-screen overflow-y-auto overflow-x-hidden scroll-smooth">
+      <main className="snap-y snap-mandatory relative w-full h-screen overflow-y-auto scroll-smooth">
         <Header />
       <div className="snap-center" >
         <Ticket />

@@ -21,7 +21,7 @@ export const Ticket = () => {
           </section>
           <footer className="w-full flex max-[800px]:flex-col justify-between items-center h-[120px] max-[800px]:h-auto max-[800px]:mb-24">
             <div className="h-full ml-[40px] max-[800px]:ml-0 max-[800px]:text-center  flex flex-col  justify-center">
-              <p className="text-[32px] max-[800px]:text-base">23 DE SEPT. 2023</p>
+              <p className="text-[32px] max-[800px]:text-base">16 DE AGOSTO. 2025</p>
               <p className="bg-[#FF8600] text-[17px] max-[800px]:text-base h-6 flex justify-center items-center">EN PENSILVANIA, CALDAS</p>
             </div>
             <ShowBand />

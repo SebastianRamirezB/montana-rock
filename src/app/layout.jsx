@@ -14,7 +14,7 @@ const blocklyn = localFont({
 
 export const metadata = {
   title: 'Montaña Rock Fest',
-  description: 'Festival de Rock en Pensilvania y el Oriente de Caldas',
+  description: 'Festival de Rock en Pensilvania y el Oriente de Caldas'
 }
 
 export default function RootLayout({ children }) {
