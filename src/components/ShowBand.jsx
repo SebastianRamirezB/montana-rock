@@ -2,19 +2,14 @@ import { useEffect, useState } from "react"
 
 
 const bands = [
-    'rocka',
-    'stayway',
-    'moth',
-    'paris sobre llamas',
+    'pez errante',
+    'autopista',
     'nauj project',
-    'silversmoke',
-    'sunset street',
-    'job',
-    'electrica',
     'santa pacha',
-    'constelan sound',
-    'sonic barton',
-    'riverstone',
+    'khimera',
+    'jack n`grass',
+    'lékel',
+    'justine y el infortunio',
 ]
 
 
