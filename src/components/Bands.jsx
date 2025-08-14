@@ -17,7 +17,7 @@ export const Bands = () => {
                     <div className="mb-2 text-4xl max-[800px]:text-base flex flex-wrap justify-center gap-4 text-center [&>span]:text-white">
                          <span
                             className="text-4xl max-[800px]:text-lg uppercase">santa pacha</span> | <span
-                                className="text-4xl max-[800px]:text-lg uppercase">himera</span> | <span
+                                className="text-4xl max-[800px]:text-lg uppercase">khimera</span> | <span
                                     className="text-4xl max-[800px]:text-lg uppercase">jack n`grass</span> | <span
                                         className="text-4xl max-[800px]:text-lg uppercase">lékel</span> | <span
                                             className="text-4xl max-[800px]:text-lg uppercase">justine y el infortunio</span>
