@@ -18,9 +18,9 @@ export default function Home() {
       <div className="snap-center">
         <Bands />
       </div>
-      <div className="snap-center">
+      {/* <div className="snap-center">
         <Sponsors />
-      </div>
+      </div> */}
       <div className="snap-center">
         <Playlist/>
       </div>
