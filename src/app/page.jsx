@@ -1,5 +1,4 @@
 import { Bands } from '@/components/Bands'
-import ChatWidget from '@/components/ChatWidget';
 import { Gallery } from '@/components/Gallery'
 import { Header } from '@/components/Header'
 import { Organize } from '@/components/Organize'
