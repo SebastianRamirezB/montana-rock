@@ -5,15 +5,16 @@ import Script from "next/script";
 
 export default function RockBotWidget() {
   useEffect(() => {
-    const interval = setInterval(() => {
-      // El script define la función "_0xa13811"
+    const check = setInterval(() => {
+      // aseguramos que la función que inicializa exista
       if (typeof (window)._0xa13811 === "function") {
-        clearInterval(interval);
-        (window)._0xa13811(); // forzamos la ejecución
+        clearInterval(check);
+        console.log("Inicializando RockBot manualmente…");
+        (window)._0xa13811(); // ejecuta la función que pinta el chat
       }
-    }, 500);
+    }, 300);
 
-    return () => clearInterval(interval);
+    return () => clearInterval(check);
   }, []);
 
   return (
@@ -22,6 +23,7 @@ export default function RockBotWidget() {
       <Script
         src="https://rockbot-924631262984.southamerica-west1.run.app/widget.js"
         strategy="afterInteractive"
+        onLoad={() => console.log("Script de RockBot cargado ✅")}
       />
     </>
   );
