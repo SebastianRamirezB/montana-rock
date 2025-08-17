@@ -1,27 +1,11 @@
-'use client';
-import { useEffect } from 'react';
 import { Bands } from '@/components/Bands';
 import { Gallery } from '@/components/Gallery';
 import { Header } from '@/components/Header';
 import { Playlist } from '@/components/Playlist';
 import { Ticket } from '@/components/Ticket';
+import { RockBot } from '@/components/RockBot';
 
 export default function Home() {
-  useEffect(() => {
-    // Evitamos duplicar el script si ya existe
-    if (document.getElementById('rockbot-widget-script')) return;
-
-    const script = document.createElement('script');
-    script.id = 'rockbot-widget-script';
-    script.src = "https://rockbot-924631262984.southamerica-west1.run.app/widget.js";
-    script.defer = true;
-    document.body.appendChild(script);
-
-    return () => {
-      script.remove();
-    };
-  }, []);
-
   return (
     <>
       <main className="snap-y snap-mandatory relative w-full h-screen overflow-y-auto scroll-smooth">
@@ -40,8 +24,11 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Opción 2: si el script lo necesita */}
-      <div id="chat-widget"></div>
+      {/* RockBot con posicionamiento personalizado */}
+      <RockBot className="fixed bottom-6 right-6 z-50" />
+      
+      {/* O si prefieres que esté siempre visible en móviles: */}
+      {/* <RockBot className="fixed bottom-4 right-4 z-50 max-[800px]:bottom-2 max-[800px]:right-2" /> */}
     </>
   );
 }
