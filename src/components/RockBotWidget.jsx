@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 export default function RockBotWidget() {
   useEffect(() => {
-    // Forzar que el div exista antes de que el script lo use
+    // Si el script necesita que exista el contenedor
     if (!document.getElementById("chat-widget")) {
       const div = document.createElement("div");
       div.id = "chat-widget";
@@ -15,7 +15,8 @@ export default function RockBotWidget() {
 
   return (
     <>
-      <div id="chat-widget"></div>
+      {/* Si el widget ya se inyecta solo, puedes quitar este div */}
+      <div id="chat-widget"></div> 
       <Script
         src="https://rockbot-924631262984.southamerica-west1.run.app/widget.js"
         strategy="afterInteractive"

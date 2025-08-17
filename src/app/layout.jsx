@@ -2,7 +2,6 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import 'atropos/css'
 import localFont from 'next/font/local'
-import RockBotWidget from '@/components/RockBotWidget'
 
 
 
@@ -24,7 +23,6 @@ export default function RootLayout({ children }) {
     <html lang="es">
     
       <body className={blocklyn.className}>{children}
-      <RockBotWidget />
       </body>
     </html>
   )
