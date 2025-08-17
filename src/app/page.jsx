@@ -43,13 +43,20 @@ export default function Home() {
         strategy="afterInteractive"
         onLoad={() => {
           console.log("RockBot widget script loaded successfully.");
+          let attempts = 0;
+          const maxAttempts = 50; // Máximo de intentos (50 * 100ms = 5 segundos)
           const interval = setInterval(() => {
             if (window.RockBot) {
               console.log("RockBot object found on window.");
               window.RockBot.init(); // Llama a la función de inicialización
               clearInterval(interval); // Detén el intervalo
             } else {
+              attempts++;
               console.log("Waiting for RockBot object...");
+              if (attempts >= maxAttempts) {
+                console.error("RockBot object not found after maximum attempts.");
+                clearInterval(interval);
+              }
             }
           }, 100); // Revisa cada 100ms
         }}
