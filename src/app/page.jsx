@@ -43,11 +43,15 @@ export default function Home() {
         strategy="afterInteractive"
         onLoad={() => {
           console.log("RockBot widget script loaded successfully.");
-          if (window.RockBot) {
-            window.RockBot.init(); // Llama a la función de inicialización
-          } else {
-            console.error("RockBot object not found on window.");
-          }
+          const interval = setInterval(() => {
+            if (window.RockBot) {
+              console.log("RockBot object found on window.");
+              window.RockBot.init(); // Llama a la función de inicialización
+              clearInterval(interval); // Detén el intervalo
+            } else {
+              console.log("Waiting for RockBot object...");
+            }
+          }, 100); // Revisa cada 100ms
         }}
         onError={(e) => {
           console.error("Failed to load RockBot widget script:", e);
