@@ -1,25 +1,26 @@
 'use client';
+import { useEffect } from 'react';
 import { Bands } from '@/components/Bands';
 import { Gallery } from '@/components/Gallery';
 import { Header } from '@/components/Header';
 import { Playlist } from '@/components/Playlist';
 import { Ticket } from '@/components/Ticket';
-import Script from 'next/script';
-import { useEffect } from 'react';
 
 export default function Home() {
+  useEffect(() => {
+    // Evitamos duplicar el script si ya existe
+    if (document.getElementById('rockbot-widget-script')) return;
 
-   useEffect(() => {
     const script = document.createElement('script');
+    script.id = 'rockbot-widget-script';
     script.src = "https://rockbot-924631262984.southamerica-west1.run.app/widget.js";
     script.defer = true;
     document.body.appendChild(script);
 
     return () => {
-      document.body.removeChild(script);
+      script.remove();
     };
   }, []);
-
 
   return (
     <>
@@ -38,8 +39,9 @@ export default function Home() {
           <Gallery />
         </div>
       </main>
-      <div id="chat-widget"></div>
 
+      {/* Opción 2: si el script lo necesita */}
+      <div id="chat-widget"></div>
     </>
   );
 }
