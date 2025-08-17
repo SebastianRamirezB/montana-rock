@@ -22,6 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
+    
       <body className={blocklyn.className}>{children}
       <RockBotWidget />
       </body>

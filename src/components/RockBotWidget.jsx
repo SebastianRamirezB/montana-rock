@@ -1,29 +1,28 @@
 "use client";
 
 import { useEffect } from "react";
+import Script from "next/script";
 
 export default function RockBotWidget() {
   useEffect(() => {
-    // Evita que se agregue más de una vez
-    if (document.getElementById("rockbot-script")) return;
+    const interval = setInterval(() => {
+      // El script define la función "_0xa13811"
+      if (typeof (window)._0xa13811 === "function") {
+        clearInterval(interval);
+        (window)._0xa13811(); // forzamos la ejecución
+      }
+    }, 500);
 
-    const div = document.createElement("div");
-    div.id = "chat-widget";
-    document.body.appendChild(div);
-
-    const script = document.createElement("script");
-    script.id = "rockbot-script";
-    script.src =
-      "https://rockbot-924631262984.southamerica-west1.run.app/widget.js";
-    script.defer = true;
-
-    document.body.appendChild(script);
-
-    return () => {
-      document.getElementById("rockbot-script")?.remove();
-      document.getElementById("chat-widget")?.remove();
-    };
+    return () => clearInterval(interval);
   }, []);
 
-  return null; // ya lo insertamos en body
+  return (
+    <>
+      <div id="chat-widget"></div>
+      <Script
+        src="https://rockbot-924631262984.southamerica-west1.run.app/widget.js"
+        strategy="afterInteractive"
+      />
+    </>
+  );
 }
