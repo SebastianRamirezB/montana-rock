@@ -1,14 +1,15 @@
 "use client";
 
-import { useEffect } from "react";
+import Script from "next/script";
 
 export default function RockBotWidget() {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://rockbot-924631262984.southamerica-west1.run.app/widget.js";
-    script.defer = true;
-    document.body.appendChild(script);
-  }, []);
-
-  return <div id="chat-widget"></div>;
+  return (
+    <>
+      <div id="chat-widget"></div>
+      <Script 
+        src="https://rockbot-924631262984.southamerica-west1.run.app/widget.js"
+        strategy="afterInteractive" 
+      />
+    </>
+  );
 }
