@@ -1,15 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 
 
 export function RockBot({ className = '' }) {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [error, setError] = useState(null);
-
   useEffect(() => {
-    // Verificar si el script ya fue cargado
     const existingScript = document.querySelector('script[src*="rockbot"]');
     
     if (!existingScript) {
@@ -19,37 +15,91 @@ export function RockBot({ className = '' }) {
       
       script.onload = () => {
         console.log('RockBot widget cargado exitosamente');
-        setIsLoaded(true);
         
-        // Debug: verificar si el widget se inicializó
+        // Agregar CSS básico para hacer visible el widget
         setTimeout(() => {
           const widget = document.getElementById('chat-widget');
           if (widget) {
-            console.log('Widget encontrado:', widget);
-            console.log('Contenido del widget:', widget.innerHTML);
-            console.log('Estilos del widget:', window.getComputedStyle(widget));
+            // Inyectar CSS básico para el widget
+            const style = document.createElement('style');
+            style.id = 'rockbot-fallback-styles';
+            style.textContent = `
+              #chat-widget {
+                position: fixed !important;
+                bottom: 20px !important;
+                right: 20px !important;
+                z-index: 10000 !important;
+                width: 60px !important;
+                height: 60px !important;
+                background-color: #007bff !important;
+                border-radius: 50% !important;
+                box-shadow: 0 4px 12px rgba(0,123,255,0.4) !important;
+                cursor: pointer !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                color: white !important;
+                font-size: 24px !important;
+                transition: transform 0.2s ease !important;
+              }
+              
+              #chat-widget:hover {
+                transform: scale(1.1) !important;
+              }
+              
+              #chat-widget:before {
+                content: "💬" !important;
+                display: block !important;
+              }
+              
+              /* Si el widget tiene contenido propio, mostrarlo */
+              #chat-widget:not(:empty):before {
+                display: none !important;
+              }
+              
+              #chat-widget > * {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+              }
+              
+              /* Estilos para el chat expandido */
+              #chat-widget.expanded {
+                width: 350px !important;
+                height: 500px !important;
+                border-radius: 12px !important;
+                background-color: white !important;
+                color: #333 !important;
+              }
+              
+              #chat-widget.expanded:before {
+                display: none !important;
+              }
+            `;
             
-            // Verificar si hay contenido dinámico
-            const observer = new MutationObserver((mutations) => {
-              mutations.forEach((mutation) => {
-                console.log('Cambio detectado en el widget:', mutation);
+            // Solo agregar el CSS si no existe ya
+            if (!document.getElementById('rockbot-fallback-styles')) {
+              document.head.appendChild(style);
+            }
+
+            // Agregar funcionalidad básica de click si el widget está vacío
+            if (widget.innerHTML.trim() === '') {
+              widget.addEventListener('click', () => {
+                console.log('Widget clickeado - intentando inicializar chat');
+                // Aquí puedes agregar lógica adicional si es necesaria
               });
-            });
-            observer.observe(widget, { childList: true, subtree: true });
-          } else {
-            console.error('Widget #chat-widget no encontrado en el DOM');
+            }
+
+            console.log('CSS fallback aplicado al widget');
           }
         }, 1000);
       };
       
       script.onerror = () => {
         console.error('Error al cargar RockBot widget');
-        setError('Error al cargar el script');
       };
       
       document.head.appendChild(script);
-    } else {
-      setIsLoaded(true);
     }
 
     return () => {
@@ -57,21 +107,13 @@ export function RockBot({ className = '' }) {
       if (scriptToRemove) {
         scriptToRemove.remove();
       }
+      
+      const styleToRemove = document.getElementById('rockbot-fallback-styles');
+      if (styleToRemove) {
+        styleToRemove.remove();
+      }
     };
   }, []);
-
-  // Debug visual
-  if (process.env.NODE_ENV === 'development') {
-    return (
-      <div className={`${className} relative`}>
-        <div id="chat-widget" />
-        <div className="fixed top-4 left-4 bg-black bg-opacity-75 text-white p-2 text-xs z-50 rounded">
-          RockBot Status: {isLoaded ? '✅ Loaded' : '⏳ Loading'}
-          {error && <div className="text-red-400">❌ {error}</div>}
-        </div>
-      </div>
-    );
-  }
 
   return <div id="chat-widget" className={className} />;
 }
