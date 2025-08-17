@@ -1,3 +1,4 @@
+'use client';
 import { Bands } from '@/components/Bands'
 import { Gallery } from '@/components/Gallery'
 import { Header } from '@/components/Header'
@@ -5,6 +6,7 @@ import { Organize } from '@/components/Organize'
 import { Playlist } from '@/components/Playlist'
 import { Sponsors } from '@/components/Sponsors'
 import { Ticket } from '@/components/Ticket'
+import Script from 'next/script'
 
 
 
@@ -29,6 +31,9 @@ export default function Home() {
         <Gallery />
       </div>
       </main>
+       <div id="chat-widget"></div>
+
+        <Script src="https://rockbot-924631262984.southamerica-west1.run.app/widget.js" />
    </>
   )
 }
