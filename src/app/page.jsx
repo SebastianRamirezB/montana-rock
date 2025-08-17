@@ -1,11 +1,13 @@
 import { Bands } from '@/components/Bands'
+import ChatWidget from '@/components/ChatWidget';
 import { Gallery } from '@/components/Gallery'
 import { Header } from '@/components/Header'
 import { Organize } from '@/components/Organize'
 import { Playlist } from '@/components/Playlist'
 import { Sponsors } from '@/components/Sponsors'
 import { Ticket } from '@/components/Ticket'
-import Image from 'next/image'
+
+
 
 export default function Home() {
   return (
@@ -28,7 +30,6 @@ export default function Home() {
         <Gallery />
       </div>
       </main>
-
-    </>
+   </>
   )
 }

@@ -2,6 +2,8 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import 'atropos/css'
 import localFont from 'next/font/local'
+import ChatWidget from '@/components/ChatWidget'
+
 
 
 
@@ -20,7 +22,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <body className={blocklyn.className}>{children}</body>
+      <body className={blocklyn.className}>{children}
+      <ChatWidget />
+      </body>
     </html>
   )
 }
