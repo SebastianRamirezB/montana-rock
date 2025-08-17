@@ -5,8 +5,20 @@ import { Header } from '@/components/Header';
 import { Playlist } from '@/components/Playlist';
 import { Ticket } from '@/components/Ticket';
 import Script from 'next/script';
+import { useEffect } from 'react';
 
 export default function Home() {
+
+   useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://rockbot-924631262984.southamerica-west1.run.app/widget.js";
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
 
   return (
@@ -28,10 +40,6 @@ export default function Home() {
       </main>
       <div id="chat-widget"></div>
 
-      <Script
-        src="https://rockbot-924631262984.southamerica-west1.run.app/widget.js"
-        strategy="lazyOnload"
-      />
     </>
   );
 }
